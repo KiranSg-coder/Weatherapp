@@ -1,0 +1,185 @@
+/* const DataTable = ({ currentItems }) => {
+
+    return (
+  
+        <table>
+  
+            <thead>
+  
+                <tr>
+  
+                    <th>ID</th>
+  
+                    <th>Name</th>
+  
+                    <th>Email</th>
+  
+                    <th>Role</th>
+  
+                   
+  
+                </tr>
+  
+            </thead>
+  
+            <tbody>
+  
+                {currentItems.map(item => (
+  
+                    <tr key={item.id}>
+  
+                        <td>{item.id}</td>
+  
+                        <td>{item.name}</td>
+  
+                        <td>{item.email}</td>
+  
+                        <td>{item.role}</td>
+  
+                    </tr>
+  
+                ))}
+  
+            </tbody>
+  
+        </table>
+  
+    );
+  
+  };
+
+  const App = () => {
+
+    const [items, setItems] = useState([]);
+
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const [itemsPerPage] = useState(10);
+
+ 
+
+    useEffect(() => {
+
+        axios.get('https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json')
+
+            .then(response => {
+
+                setItems(response.data);
+
+            })
+
+            .catch(error => {
+
+                alert("Failed to fetch data")
+
+            });
+
+    }, []);
+
+ 
+
+    // Get current items
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+    const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+
+ 
+
+    // Change page
+
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+
+return (
+
+        <div>
+
+        <h1>Employee Data Table</h1>
+
+            <DataTable currentItems={currentItems} />
+
+            <Pagination currentPage={currentPage}
+
+                itemsPerPage={itemsPerPage} 
+
+                totalItems={items.length} 
+
+                paginate={paginate}  />
+
+        </div>
+
+    );
+
+};
+
+ 
+
+export default App; */
+
+.App {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+  }
+  
+  .search-bar {
+    margin: 20px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .search-bar button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .weather-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .weather-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .weather-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .weather-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .weather-card p {
+    font-size: 18px;
+    margin: 0;
+  }
+  
